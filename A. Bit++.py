@@ -8,3 +8,4 @@ while(n):
     if  "--" in s:
         X -= 1
 print(X)
+print("hey")
