@@ -11,4 +11,4 @@ def maxProfit(prices):
     return profit
 
 
-prices = [7,6,4,3,1]
+prices = [1,4,9,1]
