@@ -1,13 +1,12 @@
-from collections import defaultdict
-
-
-def groupAnagrams( strs):
-    anagrams = defaultdict(list)
-    
+def func(strs):
+    anagram = {}
     for s in strs:
-        key = "".join(sorted(s))
-        anagrams[key].append(s)
-    
-    return list(anagrams.values())
+        sorted_s = "".join(sorted(s))
+        if sorted_s not in anagram:
+            anagram[sorted_s] = []
+        anagram[sorted_s].append(s)
+    return list(anagram.values())
 
-print(groupAnagrams(["eat","tea","tan","ate","nat","bat"]))
+
+
+print(func(["act","pots","tops","cat","stop","hat"]))
