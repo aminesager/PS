@@ -1,15 +1,19 @@
-class Solution(object):
+class Solution:
     def isValid(self, s):
-        st=[0]
-        for x in s:
-            if x=='{' or x=='(' or x=='[':
-                st.append(x)
-            elif x==')' and st[-1]=='(' or x==']' and st[-1]=='[' or x=='}' and st[-1]=='{':
-                st.pop()
-            else:
-                return False
+        stack = []
+        bracket_map = {')': '(', ']': '[', '}': '{'}
 
-        if st[-1]==0:
-            return True
-        else:
-            return False
+        for char in s:
+            if char in bracket_map.values():  
+                stack.append(char)
+            elif char in bracket_map:  
+                if not stack or stack[-1] != bracket_map[char]:
+                    return False
+                stack.pop()  
+
+        return len(stack) == 0
+        
+        
+sol= Solution()
+s= '()'
+print(sol.isValid(s))
